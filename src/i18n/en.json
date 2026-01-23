@@ -2,7 +2,7 @@
     "common": {
         "yes": "Yes",
         "no": "No",
-        "noundo": "This cannot be reverted so think twice!",
+        "noundo": "This action cannot be reverted, so be careful!",
         "ok": "OK"
     },
     "main": {
@@ -11,8 +11,8 @@
         "newgame_name": "Name this card",
         "newgame_name_hint": "e.g. game with John",
         "newgame_create": "Create",
-        "delete": "Delete game card",
-        "delete_confirm": "Really delete this game card?",
+        "delete": "Delete game profile",
+        "delete_confirm": "Really delete this game profile?",
         "rules": "Rules",
         "share": "Share",
         "about": "About",
@@ -100,9 +100,8 @@
     "about": {
         "title": "About the app",
         "madeby": "by Daniel Sýkora",
-        "thanks": "Special thanks",
-        "thanks_radka": "To auntie Radka, for teaching me how to play.",
-        "thanks_zlatana": "To Zlatana, for teaching Radka how to play and for providing the Bosnian translation",
+        "thanks_title": "Special thanks",
+        "thanks_description": "To my aunt, for teaching me how to play, and to her friend for teaching <em>her</em> how to play and for providing the Bosnian translation",
         "foss": "This application is free and open-source software.",
         "repo": "Check out the source code here!"
     }

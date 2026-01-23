@@ -100,9 +100,8 @@
     "about": {
         "title": "O aplikaci",
         "madeby": "vytvořil Daniel Sýkora",
-        "thanks": "Poděkování",
-        "thanks_radka": "Tetě Radce za to, že mě naučila hrát",
-        "thanks_zlatana": "Zlataně za to, že naučila Radku hrát, a za poskytnutí překladu do bosenštiny",
+        "thanks_title": "Poděkování",
+        "thanks_description": "Tetě za to, že mě naučila hrát; a její kamarádce za to, že <em>ji</em> naučila hrát a za poskytnutí překladu do bosenštiny",
         "foss": "Tato hra je svobodný software s otevřeným zdrojovým kódem.",
         "repo": "Mrkni na zdrojový kód tady!"
     }

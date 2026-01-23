@@ -44,12 +44,9 @@
             </div>
 
             <div class="bg-neutral-200 dark:bg-neutral-700 rounded-2xl p-4">
-                <h2 class="border-b-2 pb-1">{$_("about.thanks")}</h2>
+                <h2 class="border-b-2 pb-1">{$_("about.thanks_title")}</h2>
                 <div class="mt-2">
-                    {$_("about.thanks_radka")}
-                </div>
-                <div class="mt-2">
-                    {$_("about.thanks_zlatana")}
+                    {@html $_("about.thanks_description")}
                 </div>
             </div>
 
