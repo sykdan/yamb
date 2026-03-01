@@ -20,15 +20,17 @@
     }: Props = $props();
 </script>
 
-<!-- Icon -->
-<div
-    class="aspect-[1/2] bg-primary-500 bg-gradient-to-b bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
->
-    {@render children?.()}
-</div>
+<div class="grid yamb-grid">
+    <!-- Icon -->
+    <div
+        class="aspect-[1/2] bg-primary-500 bg-gradient-to-b bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
+    >
+        {@render children?.()}
+    </div>
 
-<!-- Input boxes -->
-<InputBox {n} {type} bind:value={row[0]} {add} {shouldAddBonus} />
-<InputBox {n} {type} bind:value={row[1]} {add} {shouldAddBonus} />
-<InputBox {n} {type} bind:value={row[2]} {add} {shouldAddBonus} />
-<InputBox {n} {type} bind:value={row[3]} {add} {shouldAddBonus} />
+    <!-- Input boxes -->
+    <InputBox {n} {type} bind:value={row[0]} {add} {shouldAddBonus} />
+    <InputBox {n} {type} bind:value={row[1]} {add} {shouldAddBonus} />
+    <InputBox {n} {type} bind:value={row[2]} {add} {shouldAddBonus} />
+    <InputBox {n} {type} bind:value={row[3]} {add} {shouldAddBonus} />
+</div>

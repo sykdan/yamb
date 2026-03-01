@@ -65,4 +65,9 @@ body {
     .btn {
         @apply squishy bg-neutral-200 hover:bg-amber-300 active:bg-amber-300 dark:bg-neutral-700 dark:hover:text-neutral-900 dark:active:text-neutral-900 text-3xl py-2 transition-all cursor-pointer flex justify-center items-center;
     }
+
+    .yamb-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
+        @apply gap-1 not-last-of-type:mb-1;
+    }
 }

@@ -92,29 +92,32 @@
     let { card = $bindable(), final_sum = $bindable(null) }: Props = $props();
 </script>
 
-<div class="flex flex-col items-center">
-    <div class="grid w-full max-w-120 min-w-50 gap-1 content-start">
-        <div></div>
+{#snippet partialSumArea<T>(values: T[], shouldHighlight?: (v: T) => boolean)}
+    {#each _GAMES as i}
+        <div
+            class={[
+                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
+                shouldHighlight?.(values[i])
+                    ? "bg-green-600"
+                    : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
+            ]}
+        >
+            {values[i]}
+        </div>
+    {/each}
+{/snippet}
 
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
-        >
-            <SvgIcon type="mdi" path={Down} size="100%" />
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
-        >
-            <SvgIcon type="mdi" path={Both} size="100%" />
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
-        >
-            <SvgIcon type="mdi" path={Up} size="100%" />
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
-        >
-            <SvgIcon type="mdi" path={Announced} size="100%" />
+<div class="flex flex-col items-center">
+    <div class="w-full max-w-120 min-w-50 gap-1 content-start">
+        <div class="grid yamb-grid">
+            <div></div>
+            {#each [Down, Both, Up, Announced] as icon}
+                <div
+                    class="aspect-[2/1] rounded-2xl text-neutral-50 surface:text-neutral-900 bg-primary-500 bg-gradient-to-r bg-theme-gradient"
+                >
+                    <SvgIcon type="mdi" path={icon} size="100%" />
+                </div>
+            {/each}
         </div>
 
         <Row n={1} type="singles" bind:row={card[0]} {shouldAddBonus}>
@@ -136,46 +139,9 @@
             <SvgIcon type="mdi" path={Dice6} size="100%" />
         </Row>
 
-        <div></div>
-        <div
-            class={[
-                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
-                singles_sums[0] > 60
-                    ? "bg-green-600"
-                    : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
-            ]}
-        >
-            {singles_sums[0]}
-        </div>
-        <div
-            class={[
-                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
-                singles_sums[1] > 60
-                    ? "bg-green-600"
-                    : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
-            ]}
-        >
-            {singles_sums[1]}
-        </div>
-        <div
-            class={[
-                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
-                singles_sums[2] > 60
-                    ? "bg-green-600"
-                    : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
-            ]}
-        >
-            {singles_sums[2]}
-        </div>
-        <div
-            class={[
-                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
-                singles_sums[3] > 60
-                    ? "bg-green-600"
-                    : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
-            ]}
-        >
-            {singles_sums[3]}
+        <div class="grid yamb-grid">
+            <div></div>
+            {@render partialSumArea(singles_sums, (number) => number > 60)}
         </div>
 
         <Row type="free" bind:row={card[6]} {shouldAddBonus}>
@@ -185,26 +151,14 @@
             <SvgIcon type="mdi" path={Minimum} size="100%" />
         </Row>
 
-        <div></div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {minmax_sums[0]}{card[0][0] == null && minmax_sums[0] ? "?" : ""}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {minmax_sums[1]}{card[0][1] == null && minmax_sums[1] ? "?" : ""}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {minmax_sums[2]}{card[0][2] == null && minmax_sums[2] ? "?" : ""}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {minmax_sums[3]}{card[0][3] == null && minmax_sums[3] ? "?" : ""}
+        <div class="grid yamb-grid">
+            <div></div>
+            {@render partialSumArea(
+                minmax_sums.map(
+                    (value, index) =>
+                        `${value}${card[0][index] == null && value ? "?" : ""}`,
+                ),
+            )}
         </div>
 
         <Row type="sequence" bind:row={card[8]} {shouldAddBonus}>
@@ -231,30 +185,12 @@
         >
             <SvgIcon type="mdi" path={Yamb} size="100%" />
         </Row>
-
-        <div></div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {special_sums[0]}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {special_sums[1]}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {special_sums[2]}
-        </div>
-        <div
-            class="aspect-[2/1] bg-primary-500 bg-gradient-to-r bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900 text-3xl flex items-center justify-center"
-        >
-            {special_sums[3]}
+        <div class="grid yamb-grid">
+            <div></div>
+            {@render partialSumArea(special_sums)}
         </div>
     </div>
-    {#if final_sum != null}
+    {#if final_sum !== null}
         <div
             class="sticky bottom-2 bg-green-600 text-neutral-50 px-3 py-2 text-center rounded-2xl shadow-2xl"
             transition:scale|local
@@ -264,9 +200,3 @@
         </div>
     {/if}
 </div>
-
-<style>
-    .grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
-    }
-</style>
