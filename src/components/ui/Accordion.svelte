@@ -19,7 +19,7 @@
 
 <Card class="flex flex-col mb-2 text-xl">
     <Button
-        class="flex"
+        class="flex text-start"
         flat
         align="start"
         onclick={() => (expanded = !expanded)}

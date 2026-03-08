@@ -49,7 +49,7 @@
         "show_background_explain": "Také můžete přepnout zabarvení pozadí.",
         "locale": "Jazyk",
         "locale_explain": "Vyberte jazyk, ve kterém budete aplikaci používat. Některé části nemusí být plně přeloženy.",
-        "wakelock": "Nevypínat obrazovku",
+        "wakelock": "Nevypínat displej",
         "wakelock_explain": "Zabrání automatickému zamčení zařízení, když hrajete. Užitečné zejména na mobilních telefonech.",
         "wakelock_unsupported": "Zdá se, že Vámi používané zařízení nebo prohlížeč internetu tuto funkci nepodporuje."
     },
