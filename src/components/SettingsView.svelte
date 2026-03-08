@@ -7,8 +7,8 @@
         mdiBrightness6 as LightDarkTheme,
         mdiBrush as ColorScheme,
         mdiPlusCircleMultiple as AutoBonus,
-        mdiCheck as SelectedColor,
         mdiCellphone as KeepScreenOn,
+        mdiCheck as Checkmark,
     } from "@mdi/js";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
@@ -42,18 +42,41 @@
         >
             {#if settings.color === identifier}
                 <div class="text-neutral-50 surface:text-neutral-900">
-                    <SvgIcon type="mdi" path={SelectedColor} size="40" />
+                    <SvgIcon type="mdi" path={Checkmark} size="40" />
                 </div>
             {/if}
         </div>
     </Button>
 {/snippet}
 
-{#snippet separator(content: string)}
+{#snippet separator(content: string | null = null)}
     <div class="flex items-center mx-2">
         <hr class="grow" />
-        <span class="mx-4">{content}</span>
-        <hr class="grow" />
+        {#if content}
+            <span class="mx-4">{content}</span>
+            <hr class="grow" />
+        {/if}
+    </div>
+{/snippet}
+
+{#snippet binaryToggle(value: boolean, change: (newValue: boolean) => void)}
+    <div class="flex flex-row p-2 gap-2">
+        <Button
+            flat
+            align="center"
+            selected={value}
+            onclick={() => change(true)}
+        >
+            {$_("settings.yes")}
+        </Button>
+        <Button
+            flat
+            align="center"
+            selected={!value}
+            onclick={() => change(false)}
+        >
+            {$_("settings.no")}
+        </Button>
     </div>
 {/snippet}
 
@@ -84,6 +107,7 @@
                     {#each themeOptions as themeOption}
                         <Button
                             flat
+                            class="h-full"
                             onclick={() => (settings.theme = themeOption)}
                             selected={settings.theme == themeOption}
                         >
@@ -98,6 +122,13 @@
                         </Button>
                     {/each}
                 </div>
+                <div class="py-2 px-3">
+                    {$_("settings.show_background_explain")}
+                </div>
+                {@render binaryToggle(
+                    settings.showBackground,
+                    (v) => (settings.showBackground = v),
+                )}
             </Accordion>
             <Accordion label={$_("settings.color")} icon={ColorScheme}>
                 <div class="py-2 px-3">
@@ -150,24 +181,10 @@
                 <div class="py-2 px-3">
                     {$_("settings.autobonus_explain")}
                 </div>
-                <div class="flex flex-col p-2 gap-2">
-                    <Button
-                        flat
-                        align="start"
-                        selected={settings.autoBonus === true}
-                        onclick={() => (settings.autoBonus = true)}
-                    >
-                        {$_("common.yes")}
-                    </Button>
-                    <Button
-                        flat
-                        align="start"
-                        selected={settings.autoBonus === false}
-                        onclick={() => (settings.autoBonus = false)}
-                    >
-                        {$_("common.no")}
-                    </Button>
-                </div>
+                {@render binaryToggle(
+                    settings.autoBonus,
+                    (v) => (settings.autoBonus = v),
+                )}
             </Accordion>
             <Accordion label={$_("settings.locale")} icon={Languages}>
                 <div class="py-2 px-3">
@@ -192,24 +209,10 @@
                     {$_("settings.wakelock_explain")}
                 </div>
                 {#if isWakeLockAvailable()}
-                    <div class="flex flex-col p-2 gap-2">
-                        <Button
-                            flat
-                            align="start"
-                            selected={settings.keepScreenOn === true}
-                            onclick={() => (settings.keepScreenOn = true)}
-                        >
-                            {$_("common.yes")}
-                        </Button>
-                        <Button
-                            flat
-                            align="start"
-                            selected={settings.keepScreenOn === false}
-                            onclick={() => (settings.keepScreenOn = false)}
-                        >
-                            {$_("common.no")}
-                        </Button>
-                    </div>
+                    {@render binaryToggle(
+                        settings.keepScreenOn,
+                        (v) => (settings.keepScreenOn = v),
+                    )}
                 {:else}
                     <div class="py-2 pt-0 px-3 italic opacity-75">
                         {$_("settings.wakelock_unsupported")}

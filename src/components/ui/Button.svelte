@@ -11,7 +11,7 @@
         selected = false,
         class: className,
         alt = false,
-        flat = false
+        flat = false,
     }: {
         children: Snippet;
         onclick: () => any;
@@ -24,7 +24,8 @@
     } = $props();
 
     const BASE = "bg-neutral-200 dark:bg-neutral-700 w-full";
-    const BASE_ALT = "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900 text-neutral-50 w-full";
+    const BASE_ALT =
+        "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900 text-neutral-50 w-full";
     const ROUNDING = $derived.by(() => {
         if (vstack === "top") return "rounded-t-2xl";
         if (vstack === "bottom") return "rounded-b-2xl";
@@ -34,7 +35,7 @@
 </script>
 
 <button {onclick} class="cursor-pointer w-full">
-    <Card {flat} class={[ROUNDING]}>
+    <Card {flat} class={["h-full", ROUNDING]}>
         <div
             class={[
                 alt ? BASE_ALT : BASE,

@@ -17,6 +17,7 @@ class YambSettings {
     autoBonus = $state(true);
     extraThemes = $state(false);
     keepScreenOn = $state(false);
+    showBackground = $state(true);
 
     gradientValues: string[] = $state([]);
     isSystemDark: MediaQuery;
@@ -34,6 +35,7 @@ class YambSettings {
         this.autoBonus = stringToBoolean((localStorage.getItem("st__autobonus") ?? "yes"));
         this.extraThemes = stringToBoolean((localStorage.getItem("st__extrathemes") ?? "no"));
         this.keepScreenOn = stringToBoolean((localStorage.getItem("st__wakelock") ?? "no"));
+        this.showBackground = stringToBoolean((localStorage.getItem("st__showbackground") ?? "yes"));
     }
 
     private registerChangeHooks() {
@@ -54,6 +56,9 @@ class YambSettings {
             });
             $effect(() => {
                 localStorage.setItem("st__wakelock", booleanToString(this.keepScreenOn));
+            });
+            $effect(() => {
+                localStorage.setItem("st__showbackground", booleanToString(this.showBackground));
             });
             $effect(() => {
                 localStorage.setItem("st__color", this.color);

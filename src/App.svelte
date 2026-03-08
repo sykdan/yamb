@@ -14,6 +14,7 @@
     } from "./lib/Navigation.svelte";
     import ShareView from "./components/ShareView.svelte";
     import AboutView from "./components/AboutView.svelte";
+    import settings from "./lib/Settings.svelte";
 
     onMount(() => {
         const handlePopState = (event: PopStateEvent) => {
@@ -32,11 +33,15 @@
 
 <Dialog />
 
-<div class="bg-primary-500 bg-theme-gradient bg-gradient-to-b fixed top-0 left-0 w-full h-full">
+{#if settings.showBackground}
     <div
-        class="bg-radial-[circle_at_50%_110%] from-transparent to-neutral-50 dark:to-neutral-950 fixed top-0 left-0 w-full h-full"
-    ></div>
-</div>
+        class="bg-primary-500 bg-theme-gradient bg-gradient-to-b fixed top-0 left-0 w-full h-full"
+    >
+        <div
+            class="bg-radial-[circle_at_50%_110%] from-transparent to-neutral-50 dark:to-neutral-950 fixed top-0 left-0 w-full h-full"
+        ></div>
+    </div>
+{/if}
 
 {#if screen == Screen.MainMenu}
     <MainMenu
