@@ -1,12 +1,13 @@
 <script lang="ts">
     import InputBox from "./InputBox.svelte";
+    import type { Snippet } from "svelte";
 
     interface Props {
         type: "singles" | "free" | "fullhouse" | "multiples" | "sequence";
         n?: 1 | 2 | 3 | 4 | 5 | 6;
         row: any;
         add?: number;
-        children?: import("svelte").Snippet;
+        children?: Snippet;
     }
 
     let {
@@ -21,7 +22,7 @@
 <div class="grid yamb-grid">
     <!-- Icon -->
     <div
-        class="aspect-[1/2] bg-primary-500 bg-gradient-to-b bg-theme-gradient rounded-2xl text-neutral-50 surface:text-neutral-900"
+        class="aspect-[1/2] bg-primary-500 bg-gradient-to-b bg-theme-gradient rounded-2xl shadow-md text-neutral-50 surface:text-neutral-900"
     >
         {@render children?.()}
     </div>

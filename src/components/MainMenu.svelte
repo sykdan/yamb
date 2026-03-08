@@ -22,6 +22,7 @@
     import Screen from "./ui/Screen.svelte";
     import Logo from "./ui/Logo.svelte";
     import Button from "./ui/Button.svelte";
+    import Card from "./ui/Card.svelte";
 
     interface Props {
         onPlay: (id: string) => any;
@@ -77,9 +78,8 @@
         <div class="flex flex-col items-center">
             <div class="flex flex-col max-w-120 w-full gap-2">
                 <Logo />
-                <div
-                    class="flex flex-col rounded-2xl bg-neutral-200 dark:bg-neutral-700"
-                >
+
+                <Card class="flex flex-col">
                     {#each gameIds as key}
                         <SaveGame
                             onSaveSelected={() => play(key)}
@@ -91,6 +91,7 @@
                     {#if !newGame}
                         <div transition:slide|local>
                             <Button
+                                flat
                                 vstack={gameIds.length ? "bottom" : null}
                                 onclick={() => {
                                     newGame = getNewGameData();
@@ -130,7 +131,8 @@
                             {/if}
                         </div>
                     {/if}
-                </div>
+                </Card>
+
 
                 <Button onclick={onOpenRules}>
                     <SvgIcon type="mdi" path={HowToPlay} size={32} />

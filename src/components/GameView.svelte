@@ -25,6 +25,7 @@
     import { offclick } from "../lib/Utils";
     import Button from "./ui/Button.svelte";
     import { releaseWakeLock, takeWakeLock } from "../lib/WakeLock.svelte";
+    import Card from "./ui/Card.svelte";
 
     let showActions = $state(false);
 
@@ -129,7 +130,7 @@
     $effect(() => {
         takeWakeLock();
         return releaseWakeLock;
-    })
+    });
 </script>
 
 <Screen>
@@ -156,31 +157,34 @@
             >
                 <div
                     {@attach offclick((e: Event) => (showActions = false))}
-                    class="max-w-120 box-border w-full flex justify-self-end flex-col rounded-2xl bg-neutral-200 dark:bg-neutral-700 shadow-2xl"
                     transition:fly={{ y: 200 }}
+                    class="max-w-120 w-full justify-self-end"
                 >
-                    <Button onclick={zeroes} vstack="top">
-                        <SvgIcon type="mdi" path={CrossOut} size={32} />
-                        {$_("game.crossempty")}
-                    </Button>
-                    <div
-                        class="border-b-2 border-neutral-300 dark:border-neutral-500"
-                    ></div>
-                    <Button onclick={order} vstack="middle">
-                        <SvgIcon type="mdi" path={WhoIsPlaying} size={32} />
-                        {$_("game.whoisplaying")}
-                    </Button>
-                    <div
-                        class="border-b-2 border-neutral-300 dark:border-neutral-500"
-                    ></div>
-                    <Button
-                        onclick={clear}
-                        vstack="bottom"
-                        class="text-red-500! hover:text-red-800!"
-                    >
-                        <SvgIcon type="mdi" path={Clear} size={32} />
-                        {$_("game.reset")}
-                    </Button>
+                    <Card class="flex flex-col">
+                        <Button flat onclick={zeroes} vstack="top">
+                            <SvgIcon type="mdi" path={CrossOut} size={32} />
+                            {$_("game.crossempty")}
+                        </Button>
+                        <div
+                            class="border-b-2 border-neutral-300 dark:border-neutral-500"
+                        ></div>
+                        <Button flat onclick={order} vstack="middle">
+                            <SvgIcon type="mdi" path={WhoIsPlaying} size={32} />
+                            {$_("game.whoisplaying")}
+                        </Button>
+                        <div
+                            class="border-b-2 border-neutral-300 dark:border-neutral-500"
+                        ></div>
+                        <Button
+                            flat
+                            onclick={clear}
+                            vstack="bottom"
+                            class="text-red-500! hover:text-red-800!"
+                        >
+                            <SvgIcon type="mdi" path={Clear} size={32} />
+                            {$_("game.reset")}
+                        </Button>
+                    </Card>
                 </div>
             </div>
         {/if}

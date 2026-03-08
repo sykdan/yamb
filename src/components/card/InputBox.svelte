@@ -84,7 +84,7 @@
     });
 </script>
 
-<div class="rounded-2xl bg-neutral-200 dark:bg-neutral-700 relative">
+<div class="rounded-2xl shadow-md bg-neutral-200 dark:bg-neutral-700 relative">
     <input
         class={[
             "peer text-center text-4xl rounded-2xl w-full h-full aspect-square",

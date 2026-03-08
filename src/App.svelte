@@ -32,6 +32,12 @@
 
 <Dialog />
 
+<div class="bg-primary-500 bg-theme-gradient bg-gradient-to-b fixed top-0 left-0 w-full h-full">
+    <div
+        class="bg-radial-[circle_at_50%_110%] from-transparent to-neutral-50 dark:to-neutral-950 fixed top-0 left-0 w-full h-full"
+    ></div>
+</div>
+
 {#if screen == Screen.MainMenu}
     <MainMenu
         onPlay={(game) => {

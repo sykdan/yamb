@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
     import { slide } from "svelte/transition";
+    import Card from "./Card.svelte";
 
     let {
         children,
@@ -9,7 +10,8 @@
         vstack = null,
         selected = false,
         class: className,
-        alt = false
+        alt = false,
+        flat = false
     }: {
         children: Snippet;
         onclick: () => any;
@@ -17,6 +19,7 @@
         vstack?: "top" | "middle" | "bottom" | null;
         selected?: boolean;
         alt?: boolean;
+        flat?: boolean;
         class?: string;
     } = $props();
 
@@ -30,19 +33,20 @@
     });
 </script>
 
-<div class={[BASE, ROUNDING]}>
-    <button
-        class={[
-            alt ? BASE_ALT : BASE,
-            ROUNDING,
-            "hover:bg-amber-300 active:bg-amber-300 dark:hover:text-neutral-900 dark:active:text-neutral-900 active:rounded-2xl h-full text-3xl py-2 px-3 transition-all cursor-pointer flex items-center gap-3 active:scale-90",
-            align === "start" ? "justify-start" : "justify-center",
-            selected &&
-                "not-hover:bg-neutral-300 dark:not-hover:bg-neutral-600",
-            className,
-        ]}
-        {onclick}
-    >
-        {@render children()}
-    </button>
-</div>
+<button {onclick} class="cursor-pointer w-full">
+    <Card {flat} class={[ROUNDING]}>
+        <div
+            class={[
+                alt ? BASE_ALT : BASE,
+                ROUNDING,
+                "hover:bg-amber-300 active:bg-amber-300 dark:hover:text-neutral-900 dark:active:text-neutral-900 active:rounded-2xl h-full text-3xl py-2 px-3 transition-all flex items-center gap-3 active:scale-90",
+                align === "start" ? "justify-start" : "justify-center",
+                selected &&
+                    "not-hover:bg-neutral-300 dark:not-hover:bg-neutral-600",
+                className,
+            ]}
+        >
+            {@render children()}
+        </div>
+    </Card>
+</button>

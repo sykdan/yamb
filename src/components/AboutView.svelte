@@ -9,6 +9,7 @@
 
     import qrCode from "../assets/qrcode.png";
     import Logo from "./ui/Logo.svelte";
+    import Card from "./ui/Card.svelte";
 
     interface Props {
         onBack: () => any;
@@ -43,14 +44,14 @@
                 </div>
             </div>
 
-            <div class="bg-neutral-200 dark:bg-neutral-700 rounded-2xl p-4">
+            <Card class="p-4">
                 <h2 class="border-b-2 pb-1">{$_("about.thanks_title")}</h2>
                 <div class="mt-2">
                     {@html $_("about.thanks_description")}
                 </div>
-            </div>
+            </Card>
 
-            <div class="mt-4">
+            <Card class="mt-4 p-4">
                 {$_("about.foss")}
                 <a
                     class="underline text-blue-400"
@@ -59,7 +60,7 @@
                 >
                     {$_("about.repo")}
                 </a>
-            </div>
+            </Card>
         </div>
     {/snippet}
 </Screen>

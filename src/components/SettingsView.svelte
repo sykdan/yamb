@@ -23,16 +23,16 @@
 
     interface Props {
         onBack: () => any;
-        onOpenRules: () => any;
     }
 
-    let { onBack, onOpenRules }: Props = $props();
+    let { onBack }: Props = $props();
 
     const themeOptions: ThemeOption[] = ["light", "dark", "system"];
 </script>
 
 {#snippet colorSchemeSetting(identifier: string)}
     <Button
+        flat
         selected={settings.color === identifier}
         onclick={() => (settings.color = identifier)}
     >
@@ -83,6 +83,7 @@
                 <div class="grid grid-cols-3 m-2 gap-2">
                     {#each themeOptions as themeOption}
                         <Button
+                            flat
                             onclick={() => (settings.theme = themeOption)}
                             selected={settings.theme == themeOption}
                         >
@@ -151,6 +152,7 @@
                 </div>
                 <div class="flex flex-col p-2 gap-2">
                     <Button
+                        flat
                         align="start"
                         selected={settings.autoBonus === true}
                         onclick={() => (settings.autoBonus = true)}
@@ -158,6 +160,7 @@
                         {$_("common.yes")}
                     </Button>
                     <Button
+                        flat
                         align="start"
                         selected={settings.autoBonus === false}
                         onclick={() => (settings.autoBonus = false)}
@@ -173,6 +176,7 @@
                 <div class="flex flex-col p-2 gap-2">
                     {#each Object.entries(supportedLanguages) as [key, langName], i}
                         <Button
+                            flat
                             align="start"
                             onclick={() => (settings.locale = key)}
                             selected={settings.locale === key}
@@ -190,6 +194,7 @@
                 {#if isWakeLockAvailable()}
                     <div class="flex flex-col p-2 gap-2">
                         <Button
+                            flat
                             align="start"
                             selected={settings.keepScreenOn === true}
                             onclick={() => (settings.keepScreenOn = true)}
@@ -197,6 +202,7 @@
                             {$_("common.yes")}
                         </Button>
                         <Button
+                            flat
                             align="start"
                             selected={settings.keepScreenOn === false}
                             onclick={() => (settings.keepScreenOn = false)}

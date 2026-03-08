@@ -93,7 +93,7 @@
     {#each _GAMES as i}
         <div
             class={[
-                "aspect-[2/1] rounded-2xl text-neutral-50 text-3xl flex items-center justify-center",
+                "aspect-[2/1] rounded-2xl shadow-md text-neutral-50 text-3xl flex items-center justify-center",
                 shouldHighlight?.(values[i])
                     ? "bg-green-600"
                     : "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900",
@@ -110,7 +110,7 @@
             <div></div>
             {#each [Down, Both, Up, Announced] as icon}
                 <div
-                    class="aspect-[2/1] rounded-2xl text-neutral-50 surface:text-neutral-900 bg-primary-500 bg-gradient-to-r bg-theme-gradient"
+                    class="aspect-[2/1] rounded-2xl shadow-md text-neutral-50 surface:text-neutral-900 bg-primary-500 bg-gradient-to-r bg-theme-gradient"
                 >
                     <SvgIcon type="mdi" path={icon} size="100%" />
                 </div>
