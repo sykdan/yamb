@@ -1,25 +1,21 @@
 <script lang="ts">
     import { mdiClose as Cross } from "@mdi/js";
     import SvgIcon from "@jamescoyle/svelte-icon";
+    import settings from "../../lib/Settings.svelte";
 
     interface Props {
         value: any;
         type: "singles" | "free" | "fullhouse" | "multiples" | "sequence";
         n?: number;
         add?: number;
-        shouldAddBonus: Boolean;
     }
 
-    let {
-        value = $bindable(),
-        type,
-        n = 0,
-        add = 0,
-        shouldAddBonus,
-    }: Props = $props();
+    let { value = $bindable(), type, n = 0, add = 0 }: Props = $props();
 
     let inputValue: number | null = $derived(getValueForInput());
     let invalid = $state(false);
+
+    let shouldAddBonus = $derived(settings.autoBonus);
 
     function setInput(newValue: number | null) {
         checkValidity();
@@ -78,7 +74,7 @@
     }
 
     function getValueForInput() {
-        return value != null
+        return value !== null
             ? Math.max(value - (shouldAddBonus ? add : 0), 0)
             : null;
     }

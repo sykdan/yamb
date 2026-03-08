@@ -29,7 +29,6 @@
 
     import Row from "./Row.svelte";
     import { type GameCard } from "../../lib/SaveData.svelte";
-    import settings from "../../lib/Settings.svelte";
 
     // Variables for mid-game calculations
     const _GAMES = [0, 1, 2, 3];
@@ -82,8 +81,6 @@
         }
     });
 
-    let shouldAddBonus = settings.autoBonus;
-
     interface Props {
         card: GameCard;
         final_sum?: number | null;
@@ -120,22 +117,22 @@
             {/each}
         </div>
 
-        <Row n={1} type="singles" bind:row={card[0]} {shouldAddBonus}>
+        <Row n={1} type="singles" bind:row={card[0]}>
             <SvgIcon type="mdi" path={Dice1} size="100%" />
         </Row>
-        <Row n={2} type="singles" bind:row={card[1]} {shouldAddBonus}>
+        <Row n={2} type="singles" bind:row={card[1]}>
             <SvgIcon type="mdi" path={Dice2} size="100%" />
         </Row>
-        <Row n={3} type="singles" bind:row={card[2]} {shouldAddBonus}>
+        <Row n={3} type="singles" bind:row={card[2]}>
             <SvgIcon type="mdi" path={Dice3} size="100%" />
         </Row>
-        <Row n={4} type="singles" bind:row={card[3]} {shouldAddBonus}>
+        <Row n={4} type="singles" bind:row={card[3]}>
             <SvgIcon type="mdi" path={Dice4} size="100%" />
         </Row>
-        <Row n={5} type="singles" bind:row={card[4]} {shouldAddBonus}>
+        <Row n={5} type="singles" bind:row={card[4]}>
             <SvgIcon type="mdi" path={Dice5} size="100%" />
         </Row>
-        <Row n={6} type="singles" bind:row={card[5]} {shouldAddBonus}>
+        <Row n={6} type="singles" bind:row={card[5]}>
             <SvgIcon type="mdi" path={Dice6} size="100%" />
         </Row>
 
@@ -144,10 +141,10 @@
             {@render partialSumArea(singles_sums, (number) => number > 60)}
         </div>
 
-        <Row type="free" bind:row={card[6]} {shouldAddBonus}>
+        <Row type="free" bind:row={card[6]}>
             <SvgIcon type="mdi" path={Maximum} size="100%" />
         </Row>
-        <Row type="free" bind:row={card[7]} {shouldAddBonus}>
+        <Row type="free" bind:row={card[7]}>
             <SvgIcon type="mdi" path={Minimum} size="100%" />
         </Row>
 
@@ -161,28 +158,16 @@
             )}
         </div>
 
-        <Row type="sequence" bind:row={card[8]} {shouldAddBonus}>
+        <Row type="sequence" bind:row={card[8]}>
             <SvgIcon type="mdi" path={Sequence} size="100%" />
         </Row>
-        <Row type="fullhouse" bind:row={card[9]} add={30} {shouldAddBonus}>
+        <Row type="fullhouse" bind:row={card[9]} add={30}>
             <SvgIcon type="mdi" path={FullHouse} size="100%" />
         </Row>
-        <Row
-            n={4}
-            type="multiples"
-            bind:row={card[10]}
-            add={40}
-            {shouldAddBonus}
-        >
+        <Row n={4} type="multiples" bind:row={card[10]} add={40}>
             <SvgIcon type="mdi" path={Poker} size="100%" />
         </Row>
-        <Row
-            n={5}
-            type="multiples"
-            bind:row={card[11]}
-            add={50}
-            {shouldAddBonus}
-        >
+        <Row n={5} type="multiples" bind:row={card[11]} add={50}>
             <SvgIcon type="mdi" path={Yamb} size="100%" />
         </Row>
         <div class="grid yamb-grid">
