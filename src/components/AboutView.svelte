@@ -7,7 +7,6 @@
     import TopBar from "./ui/TopBar.svelte";
     import Screen from "./ui/Screen.svelte";
 
-    import qrCode from "../assets/qrcode.png";
     import Logo from "./ui/Logo.svelte";
     import Card from "./ui/Card.svelte";
 

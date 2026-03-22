@@ -52,6 +52,7 @@
                         {dialogTrigger.cancel}
                     </Button>
                 {/if}
+                
                 <AltButton class="text-xl" onclick={() => resolve(true)}>
                     {dialogTrigger.ok}
                 </AltButton>

@@ -157,7 +157,19 @@
                 transition:fade
             >
                 <div
-                    {@attach offclick((e: Event) => (showActions = false))}
+                    {@attach offclick(
+                        (this_element: Element, clicked_element: Element) => {
+                            if (
+                                this_element.contains(
+                                    clicked_element as Element,
+                                ) ||
+                                dialogTrigger.visible
+                            ) {
+                                return;
+                            }
+                            showActions = false;
+                        },
+                    )}
                     transition:fly={{ y: 200 }}
                     class="max-w-120 w-full justify-self-end"
                 >

@@ -1,9 +1,10 @@
-export function offclick(callback: (event: Event) => any) {
+export function offclick(callback: (this_element: Element, clicked_element: Element) => any) {
     return (el: Element) => {
         const cb = (event: Event) => {
-            if (!el.contains((event.target as Element)) && !(event.target as Element).closest(".dialog")) {
-                callback(event);
+            if (el.getAttribute("inert")) {
+                return;
             }
+            callback(el, event.target as Element);
         }
         setTimeout(() => {
             window.addEventListener("click", cb);

@@ -107,5 +107,19 @@
         "thanks_description": "Tetě za to, že mě naučila hrát; a její kamarádce za to, že <em>ji</em> naučila hrát a za poskytnutí překladu do bosenštiny",
         "foss": "Tato hra je svobodný software s otevřeným zdrojovým kódem.",
         "repo": "Mrkni na zdrojový kód tady!"
+    },
+    "rows": {
+        "ones": "Jedničky",
+        "twos": "Dvojky",
+        "threes": "Trojky",
+        "fours": "Čtyřky",
+        "fives": "Pětky",
+        "sixes": "Šestky",
+        "maximum": "Maximum",
+        "minimum": "Minimum",
+        "straight": "Postupka",
+        "fullhouse": "Full House",
+        "poker": "Poker",
+        "yamb": "Yamb"
     }
 }

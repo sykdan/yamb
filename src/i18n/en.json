@@ -107,5 +107,19 @@
         "thanks_description": "To my aunt, for teaching me how to play, and to her friend for teaching <em>her</em> how to play and for providing the Bosnian translation",
         "foss": "This application is free and open-source software.",
         "repo": "Check out the source code here!"
+    },
+    "rows": {
+        "ones": "Ones",
+        "twos": "Twos",
+        "threes": "Threes",
+        "fours": "Fours",
+        "fives": "Fives",
+        "sixes": "Sixes",
+        "maximum": "Maximum",
+        "minimum": "Minimum",
+        "straight": "Straight",
+        "fullhouse": "Full House",
+        "poker": "Poker",
+        "yamb": "Yamb"
     }
 }

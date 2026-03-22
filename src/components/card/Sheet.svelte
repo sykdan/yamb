@@ -118,22 +118,22 @@
             {/each}
         </div>
 
-        <Row n={1} type="singles" bind:row={card[0]}>
+        <Row label={$_("rows.ones")} n={1} type="singles" bind:row={card[0]}>
             <SvgIcon type="mdi" path={Dice1} size="100%" />
         </Row>
-        <Row n={2} type="singles" bind:row={card[1]}>
+        <Row label={$_("rows.twos")} n={2} type="singles" bind:row={card[1]}>
             <SvgIcon type="mdi" path={Dice2} size="100%" />
         </Row>
-        <Row n={3} type="singles" bind:row={card[2]}>
+        <Row label={$_("rows.threes")} n={3} type="singles" bind:row={card[2]}>
             <SvgIcon type="mdi" path={Dice3} size="100%" />
         </Row>
-        <Row n={4} type="singles" bind:row={card[3]}>
+        <Row label={$_("rows.fours")} n={4} type="singles" bind:row={card[3]}>
             <SvgIcon type="mdi" path={Dice4} size="100%" />
         </Row>
-        <Row n={5} type="singles" bind:row={card[4]}>
+        <Row label={$_("rows.fives")} n={5} type="singles" bind:row={card[4]}>
             <SvgIcon type="mdi" path={Dice5} size="100%" />
         </Row>
-        <Row n={6} type="singles" bind:row={card[5]}>
+        <Row label={$_("rows.sixes")} n={6} type="singles" bind:row={card[5]}>
             <SvgIcon type="mdi" path={Dice6} size="100%" />
         </Row>
 
@@ -142,10 +142,10 @@
             {@render partialSumArea(singles_sums, (number) => number > 60)}
         </div>
 
-        <Row type="free" bind:row={card[6]}>
+        <Row label={$_("rows.maximum")} type="free" bind:row={card[6]}>
             <SvgIcon type="mdi" path={Maximum} size="100%" />
         </Row>
-        <Row type="free" bind:row={card[7]}>
+        <Row label={$_("rows.minimum")} type="free" bind:row={card[7]}>
             <SvgIcon type="mdi" path={Minimum} size="100%" />
         </Row>
 
@@ -159,16 +159,16 @@
             )}
         </div>
 
-        <Row type="sequence" bind:row={card[8]}>
+        <Row label={$_("rows.straight")} type="sequence" bind:row={card[8]}>
             <SvgIcon type="mdi" path={Sequence} size="100%" />
         </Row>
-        <Row type="fullhouse" bind:row={card[9]} add={30}>
+        <Row label={$_("rows.fullhouse")} type="fullhouse" bind:row={card[9]} add={30}>
             <SvgIcon type="mdi" path={FullHouse} size="100%" />
         </Row>
-        <Row n={4} type="multiples" bind:row={card[10]} add={40}>
+        <Row label={$_("rows.poker")} n={4} type="multiples" bind:row={card[10]} add={40}>
             <SvgIcon type="mdi" path={Poker} size="100%" />
         </Row>
-        <Row n={5} type="multiples" bind:row={card[11]} add={50}>
+        <Row label={$_("rows.yamb")} n={5} type="multiples" bind:row={card[11]} add={50}>
             <SvgIcon type="mdi" path={Yamb} size="100%" />
         </Row>
         <div class="grid yamb-grid">

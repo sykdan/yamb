@@ -37,7 +37,7 @@
     <div
         class={[
             className,
-        ROUNDING,
+            ROUNDING,
             "overflow-hidden w-full h-full text-3xl transition-all flex items-center gap-3 active:rounded-2xl active:scale-90",
             "bg-neutral-200 dark:bg-neutral-700",
             PADDING,

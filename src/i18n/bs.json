@@ -79,5 +79,19 @@
         "scoring_4": "Bodovi za kentu, full-house, poker i yamb se saberu bez posebnih pravila",
         "scoring_5": "Zbir ova tri dijela je konacan zbir za kolonu",
         "scoring_6": "Konacan rezultat je zbir svih kolona. Aplikacija će ovo uraditi za vas i pokazaće vam končni rezultat dole"
+    },
+    "rows": {
+        "ones": "Jedinice",
+        "twos": "Dvojke",
+        "threes": "Trojke",
+        "fours": "Četvorke",
+        "fives": "Petice",
+        "sixes": "Šestice",
+        "maximum": "Maksimum",
+        "minimum": "Minimum",
+        "straight": "Kenta",
+        "fullhouse": "Full House",
+        "poker": "Poker",
+        "yamb": "Yambb"
     }
 }
