@@ -24,20 +24,19 @@
     import Button from "./ui/Button.svelte";
     import Card from "./ui/Card.svelte";
 
-    interface Props {
-        onPlay: (id: string) => any;
-        onOpenRules: () => any;
-        onOpenSettings: () => any;
-        onOpenShare: () => any;
-        onOpenAbout: () => any;
-    }
     let {
         onPlay,
         onOpenRules,
         onOpenSettings,
         onOpenShare,
         onOpenAbout,
-    }: Props = $props();
+    }: {
+        onPlay: (id: string) => any;
+        onOpenRules: () => any;
+        onOpenSettings: () => any;
+        onOpenShare: () => any;
+        onOpenAbout: () => any;
+    } = $props();
 
     let games: { [key: string]: GameData } = $state(
         JSON.parse(localStorage.getItem("games") || "{}"),
@@ -132,7 +131,6 @@
                         </div>
                     {/if}
                 </Card>
-
 
                 <Button onclick={onOpenRules}>
                     <SvgIcon type="mdi" path={HowToPlay} size={32} />

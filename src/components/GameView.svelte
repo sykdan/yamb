@@ -27,14 +27,15 @@
     import { releaseWakeLock, takeWakeLock } from "../lib/WakeLock.svelte";
     import Card from "./ui/Card.svelte";
 
-    let showActions = $state(false);
-
-    interface Props {
+    let {
+        id,
+        onBack,
+    }: {
         id: string;
         onBack: () => any;
-    }
+    } = $props();
 
-    let { id, onBack }: Props = $props();
+    let showActions = $state(false);
     let gameData: GameData = $state(
         JSON.parse(localStorage.getItem("games")!)[id],
     );

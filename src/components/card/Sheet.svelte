@@ -81,12 +81,13 @@
         }
     });
 
-    interface Props {
+    let {
+        card = $bindable(),
+        final_sum = $bindable(null),
+    }: {
         card: GameCard;
         final_sum?: number | null;
-    }
-
-    let { card = $bindable(), final_sum = $bindable(null) }: Props = $props();
+    } = $props();
 </script>
 
 {#snippet partialSumArea<T>(values: T[], shouldHighlight?: (v: T) => boolean)}

@@ -21,11 +21,11 @@
     import Button from "./ui/Button.svelte";
     import { isWakeLockAvailable } from "../lib/WakeLock.svelte";
 
-    interface Props {
+    let {
+        onBack,
+    }: {
         onBack: () => any;
-    }
-
-    let { onBack }: Props = $props();
+    } = $props();
 
     const themeOptions: ThemeOption[] = ["light", "dark", "system"];
 </script>

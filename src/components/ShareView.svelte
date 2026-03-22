@@ -9,10 +9,11 @@
 
     import qrCode from "../assets/qrcode.png";
 
-    interface Props {
+    let {
+        onBack,
+    }: {
         onBack: () => any;
-    }
-    let { onBack }: Props = $props();
+    } = $props();
 </script>
 
 <Screen>
@@ -38,7 +39,11 @@
                 http://yamb.silver-volt4.cz
             </div>
             {$_("share.qrcode")}
-            <img src={qrCode} alt="QR code" class="qrcode w-60 self-center my-4 shadow-2xl" />
+            <img
+                src={qrCode}
+                alt="QR code"
+                class="qrcode w-60 self-center my-4 shadow-2xl"
+            />
         </div>
     {/snippet}
 </Screen>

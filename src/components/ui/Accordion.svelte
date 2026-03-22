@@ -6,15 +6,17 @@
     import Card from "./Card.svelte";
     import { mdiChevronDown as AccordionArrow } from "@mdi/js";
 
-    interface Props {
+    let expanded = $state(false);
+
+    let {
+        label,
+        icon = undefined,
+        children,
+    }: {
         label: string;
         icon?: string;
         children: Snippet;
-    }
-
-    let expanded = $state(false);
-
-    let { label, icon = undefined, children }: Props = $props();
+    } = $props();
 </script>
 
 <Card class="flex flex-col mb-2 text-xl">
@@ -33,7 +35,10 @@
 
         <div class="grow-1 flex justify-end">
             <SvgIcon
-                class={["transition-transform duration-[0.3s]", expanded ? "rotate-180" : null]}
+                class={[
+                    "transition-transform duration-[0.3s]",
+                    expanded ? "rotate-180" : null,
+                ]}
                 type="mdi"
                 path={AccordionArrow}
                 size="28"

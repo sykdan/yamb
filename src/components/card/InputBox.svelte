@@ -3,14 +3,17 @@
     import SvgIcon from "@jamescoyle/svelte-icon";
     import settings from "../../lib/Settings.svelte";
 
-    interface Props {
+    let {
+        value = $bindable(),
+        type,
+        n = 0,
+        add = 0,
+    }: {
         value: any;
         type: "singles" | "free" | "fullhouse" | "multiples" | "sequence";
         n?: number;
         add?: number;
-    }
-
-    let { value = $bindable(), type, n = 0, add = 0 }: Props = $props();
+    } = $props();
 
     let inputValue: number | null = $derived(getValueForInput());
     let invalid = $state(false);

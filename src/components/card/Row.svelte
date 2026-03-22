@@ -2,21 +2,19 @@
     import InputBox from "./InputBox.svelte";
     import type { Snippet } from "svelte";
 
-    interface Props {
-        type: "singles" | "free" | "fullhouse" | "multiples" | "sequence";
-        n?: 1 | 2 | 3 | 4 | 5 | 6;
-        row: any;
-        add?: number;
-        children?: Snippet;
-    }
-
     let {
         type,
         n = undefined,
         row = $bindable(),
         add = 0,
         children,
-    }: Props = $props();
+    }: {
+        type: "singles" | "free" | "fullhouse" | "multiples" | "sequence";
+        n?: 1 | 2 | 3 | 4 | 5 | 6;
+        row: any;
+        add?: number;
+        children?: Snippet;
+    } = $props();
 </script>
 
 <div class="grid yamb-grid">

@@ -8,13 +8,15 @@
     import { dialogTrigger } from "../../lib/DialogTrigger.svelte";
     import type { GameData } from "../../lib/SaveData.svelte";
 
-    interface Props {
+    let {
+        metadata,
+        onSaveSelected,
+        onSaveDelete,
+    }: {
         metadata: GameData;
         onSaveSelected: () => any;
         onSaveDelete: () => any;
-    }
-
-    let { metadata, onSaveSelected, onSaveDelete }: Props = $props();
+    } = $props();
 </script>
 
 <div

@@ -1,21 +1,19 @@
 <script lang="ts">
     import { type Snippet } from "svelte";
 
-    interface Props {
-        title?: string;
-        leftButtonContent?: Snippet;
-        onLeftButtonPressed?: () => any;
-        rightButtonContent?: Snippet;
-        onRightButtonPressed?: () => any;
-    }
-
     let {
         title = "",
         leftButtonContent,
         onLeftButtonPressed,
         rightButtonContent,
         onRightButtonPressed,
-    }: Props = $props();
+    }: {
+        title?: string;
+        leftButtonContent?: Snippet;
+        onLeftButtonPressed?: () => any;
+        rightButtonContent?: Snippet;
+        onRightButtonPressed?: () => any;
+    } = $props();
 </script>
 
 {#snippet actionButton(

@@ -11,10 +11,11 @@
     import Logo from "./ui/Logo.svelte";
     import Card from "./ui/Card.svelte";
 
-    interface Props {
+    let {
+        onBack,
+    }: {
         onBack: () => any;
-    }
-    let { onBack }: Props = $props();
+    } = $props();
 </script>
 
 <Screen>

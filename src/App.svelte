@@ -70,10 +70,5 @@
 {:else if screen == Screen.AboutView}
     <AboutView onBack={popScreen} />
 {:else if screen == Screen.SettingsView}
-    <SettingsView
-        onBack={popScreen}
-        onOpenRules={() => {
-            pushScreen({ screen: Screen.GameRules });
-        }}
-    />
+    <SettingsView onBack={popScreen} />
 {/if}

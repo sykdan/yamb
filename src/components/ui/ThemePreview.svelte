@@ -1,11 +1,11 @@
 <script lang="ts">
     export type ThemeOption = "light" | "dark" | "system";
-    
-    interface Props {
-        theme: ThemeOption;
-    }
 
-    let { theme }: Props = $props();
+    let {
+        theme,
+    }: {
+        theme: ThemeOption;
+    } = $props();
 </script>
 
 <div class="relative w-[70px] h-[100px]">

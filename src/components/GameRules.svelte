@@ -25,10 +25,11 @@
     import TopBar from "./ui/TopBar.svelte";
     import Screen from "./ui/Screen.svelte";
 
-    interface Props {
+    let {
+        onBack,
+    }: {
         onBack: () => any;
-    }
-    let { onBack }: Props = $props();
+    } = $props();
 </script>
 
 <Screen>
@@ -114,14 +115,19 @@
             </p>
             <p>
                 <SvgIcon type="mdi" path={Poker} size={32} />
-                {@html $_("rules.rows_poker")}<span class="text-amber-300">*</span>
+                {@html $_("rules.rows_poker")}<span class="text-amber-300"
+                    >*</span
+                >
             </p>
             <p>
                 <SvgIcon type="mdi" path={Yamb} size={32} />
-                {@html $_("rules.rows_yamb")}<span class="text-amber-300">*</span>
+                {@html $_("rules.rows_yamb")}<span class="text-amber-300"
+                    >*</span
+                >
             </p>
             <p class="text-lg">
-                <span class="text-amber-300">*</span> {@html $_("rules.rows_autobonus")}
+                <span class="text-amber-300">*</span>
+                {@html $_("rules.rows_autobonus")}
             </p>
             <h2>{@html $_("rules.cols")}</h2>
             <p>
