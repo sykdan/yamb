@@ -88,7 +88,7 @@
                     {/each}
 
                     {#if !newGame}
-                        <div transition:slide|local>
+                        <div class="flex" transition:slide|local>
                             <Button
                                 flat
                                 vstack={gameIds.length ? "bottom" : null}

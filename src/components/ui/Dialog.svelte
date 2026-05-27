@@ -5,6 +5,7 @@
     import { freezeScreen, unfreezeScreen } from "../../lib/Navigation.svelte";
     import { untrack } from "svelte";
     import Button from "./Button.svelte";
+    import AltButton from "./AltButton.svelte";
 
     function resolve(result: boolean) {
         dialogTrigger.visible = false;
@@ -51,17 +52,12 @@
                         {dialogTrigger.cancel}
                     </Button>
                 {/if}
-                <Button
-                    class="text-xl group p-0!"
-                    alt={true}
+                <AltButton
+                    class="text-xl"
                     onclick={() => resolve(true)}
                 >
-                    <div
-                        class="scale-101 py-2 px-3 w-full h-full transition group-hover:bg-amber-300 group-hover:text-neutral-950 group-active:bg-amber-300 group-active:text-neutral-950 rounded-2xl flex items-center justify-center"
-                    >
-                        {dialogTrigger.ok}
-                    </div>
-                </Button>
+                    {dialogTrigger.ok}
+                </AltButton>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
     import type { Snippet } from "svelte";
     import { slide } from "svelte/transition";
     import Card from "./Card.svelte";
+    import BaseButton from "./BaseButton.svelte";
 
     let {
         children,
@@ -10,7 +11,6 @@
         vstack = null,
         selected = false,
         class: className,
-        alt = false,
         flat = false,
     }: {
         children: Snippet;
@@ -23,31 +23,22 @@
         class?: string;
     } = $props();
 
-    const BASE = "bg-neutral-200 dark:bg-neutral-700 w-full";
-    const BASE_ALT =
-        "bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900 text-neutral-50 w-full";
-    const ROUNDING = $derived.by(() => {
-        if (vstack === "top") return "rounded-t-2xl";
-        if (vstack === "bottom") return "rounded-b-2xl";
-        if (vstack === "middle") return false;
-        return "rounded-2xl";
-    });
+    const PADDING = "py-2 px-3";
 </script>
 
-<button {onclick} class="cursor-pointer w-full">
-    <Card {flat} class={["h-full", ROUNDING]}>
-        <div
-            class={[
-                alt ? BASE_ALT : BASE,
-                ROUNDING,
-                "hover:bg-amber-300 active:bg-amber-300 dark:hover:text-neutral-900 dark:active:text-neutral-900 active:rounded-2xl h-full text-3xl py-2 px-3 transition-all flex items-center gap-3 active:scale-90",
-                align === "start" ? "justify-start" : "justify-center",
-                selected &&
-                    "not-hover:bg-neutral-300 dark:not-hover:bg-neutral-600",
-                className,
-            ]}
-        >
-            {@render children()}
-        </div>
-    </Card>
-</button>
+<BaseButton {onclick} {vstack} {flat}>
+    <div
+        class={[
+            className,
+            "overflow-hidden w-full h-full text-3xl transition-all flex items-center gap-3 active:rounded-2xl active:scale-90",
+            "bg-neutral-200 dark:bg-neutral-700",
+            PADDING,
+            "hover:bg-amber-300 active:bg-amber-300 dark:hover:text-neutral-900 dark:active:text-neutral-900",
+            align === "start" ? "justify-start" : "justify-center",
+            selected &&
+                "not-hover:bg-neutral-300 dark:not-hover:bg-neutral-600",
+        ]}
+    >
+        {@render children()}
+    </div>
+</BaseButton>
