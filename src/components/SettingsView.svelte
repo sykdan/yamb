@@ -31,16 +31,17 @@
 </script>
 
 {#snippet colorSchemeSetting(identifier: string)}
+    {@const selected = settings.color === identifier}
     <Button
-        flat
-        selected={settings.color === identifier}
+        flat={!selected}
+        selected={selected}
         onclick={() => (settings.color = identifier)}
     >
         <div
             data-color={identifier}
             class="bg-primary-500 w-14 h-14 rounded-full bg-theme-gradient bg-linear-to-l flex justify-center items-center"
         >
-            {#if settings.color === identifier}
+            {#if selected}
                 <div class="text-neutral-50 surface:text-neutral-900">
                     <SvgIcon type="mdi" path={Checkmark} size="40" />
                 </div>
@@ -62,7 +63,7 @@
 {#snippet binaryToggle(value: boolean, change: (newValue: boolean) => void)}
     <div class="flex flex-row p-2 gap-2">
         <Button
-            flat
+            flat={!value}
             align="center"
             selected={value}
             onclick={() => change(true)}
@@ -70,7 +71,7 @@
             {$_("settings.yes")}
         </Button>
         <Button
-            flat
+            flat={value}
             align="center"
             selected={!value}
             onclick={() => change(false)}
@@ -105,11 +106,12 @@
                 </div>
                 <div class="grid grid-cols-3 m-2 gap-2">
                     {#each themeOptions as themeOption}
+                        {@const selected = settings.theme === themeOption}
                         <Button
-                            flat
+                            flat={!selected}
                             class="h-full"
                             onclick={() => (settings.theme = themeOption)}
-                            selected={settings.theme == themeOption}
+                            selected={selected}
                         >
                             <div class="flex flex-col items-center h-full">
                                 <ThemePreview theme={themeOption} />
@@ -192,11 +194,12 @@
                 </div>
                 <div class="flex flex-col p-2 gap-2">
                     {#each Object.entries(supportedLanguages) as [key, langName], i}
+                        {@const selected = settings.locale === key}
                         <Button
-                            flat
+                            flat={!selected}
                             align="start"
                             onclick={() => (settings.locale = key)}
-                            selected={settings.locale === key}
+                            selected={selected}
                         >
                             <img src={flags[key]} alt="" class="w-12 px-1" />
                             {langName}

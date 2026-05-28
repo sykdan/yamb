@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { fade, fly } from "svelte/transition";
+    import { fade, scale } from "svelte/transition";
     import { dialogTrigger } from "../../lib/DialogTrigger.svelte";
-    import { circOut, quadOut } from "svelte/easing";
+    import { quadOut } from "svelte/easing";
     import { freezeScreen, unfreezeScreen } from "../../lib/Navigation.svelte";
     import { untrack } from "svelte";
     import Button from "./Button.svelte";
@@ -32,8 +32,8 @@
     >
         <div
             class="flex flex-col max-w-120 w-full rounded-2xl bg-neutral-50 dark:bg-neutral-900 shadow-xl whitespace-pre-line"
-            in:fly={{ y: -50, easing: circOut }}
-            out:fly={{ y: 50, easing: quadOut }}
+            in:scale={{ start: 1.2, duration: 200, easing: quadOut }}
+            out:scale={{ start: 1 / 1.2, duration: 200, easing: quadOut }}
         >
             <div
                 class="bg-primary-500 bg-gradient-to-r bg-theme-gradient surface:text-neutral-900 text-neutral-50 text-center text-2xl py-1 rounded-t-2xl"
@@ -52,10 +52,7 @@
                         {dialogTrigger.cancel}
                     </Button>
                 {/if}
-                <AltButton
-                    class="text-xl"
-                    onclick={() => resolve(true)}
-                >
+                <AltButton class="text-xl" onclick={() => resolve(true)}>
                     {dialogTrigger.ok}
                 </AltButton>
             </div>

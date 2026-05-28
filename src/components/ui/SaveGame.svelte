@@ -34,7 +34,7 @@
         </span>
     </div>
     <button
-        class="hover:not-active:scale-105 squishy bg-amber-300 flex flex-row p-2 rounded-full me-2 cursor-pointer items-center pe-4 text-neutral-900 text-xl"
+        class="hover:not-active:scale-105 squishy bg-amber-300 rounded-full text-neutral-900 p-2 cursor-pointer shadow-md flex flex-row me-2 items-center pe-4 text-xl"
         onclick={onSaveSelected}
     >
         <SvgIcon type="mdi" path={Play} size="32" />
@@ -48,7 +48,7 @@
                 $_("common.yes"),
                 $_("common.no"),
             )) && onSaveDelete()}
-        class="hover:not-active:scale-105 squishy bg-red-400 rounded-full aspect-square text-neutral-900 cursor-pointer p-2"
+        class="hover:not-active:scale-105 squishy bg-red-400 rounded-full text-neutral-900 p-2 cursor-pointer shadow-md aspect-square"
     >
         <SvgIcon type="mdi" path={Delete} size={32} />
     </button>
