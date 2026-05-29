@@ -132,18 +132,20 @@
                     {/if}
                 </Card>
 
-                <Button onclick={onOpenRules}>
-                    <SvgIcon type="mdi" path={HowToPlay} size={32} />
-                    {$_("main.rules")}
-                </Button>
                 <Button onclick={onOpenSettings}>
                     <SvgIcon type="mdi" path={Settings} size={32} />
                     {$_("main.options")}
                 </Button>
-                <hr class="mx-4 opacity-25" />
+
+                <hr class="mx-4 my-2 opacity-25" />
+
                 <Button onclick={onOpenShare}>
                     <SvgIcon type="mdi" path={Share} size={32} />
                     {$_("main.share")}
+                </Button>
+                <Button onclick={onOpenRules}>
+                    <SvgIcon type="mdi" path={HowToPlay} size={32} />
+                    {$_("main.rules")}
                 </Button>
                 <Button onclick={onOpenAbout}>
                     <SvgIcon type="mdi" path={About} size={32} />
