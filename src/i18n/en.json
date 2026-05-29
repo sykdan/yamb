@@ -51,7 +51,7 @@
         "locale_explain": "Choose a language to use. Some parts may not be fully translated.",
         "wakelock": "Keep screen on",
         "wakelock_explain": "Keep the screen lit when you're playing. Useful on mobile devices.",
-        "wakelock_unsupported": "This functionality is sadly not supported by your current device or internet browser."
+        "wakelock_unsupported": "It appears that this functionality is not supported by your current device or internet browser."
     },
     "rules": {
         "title": "Yamb game rules",

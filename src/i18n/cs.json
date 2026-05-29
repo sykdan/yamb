@@ -17,7 +17,7 @@
         "rules": "Pravidla hry",
         "share": "Sdílet",
         "about": "O aplikaci",
-        "options": "Možnosti"
+        "options": "Nastavení"
     },
     "game": {
         "finalscore": "Celkové skóre",
@@ -31,7 +31,7 @@
         "reset_confirm": "Opravdu chceš resetovat celou kartu?"
     },
     "settings": {
-        "title": "Možnosti",
+        "title": "Nastavení",
         "theme": "Motiv",
         "theme_explain": "Vyberte si vzhled aplikace.",
         "theme_light": "Světlý",
