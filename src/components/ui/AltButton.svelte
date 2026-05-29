@@ -25,7 +25,7 @@
     <div
         class={[
             wrapperClass,
-            "overflow-hidden w-full h-full transition-all flex active:rounded-2xl active:scale-90",
+            "overflow-hidden w-full h-full transition-all flex rounded-2xl active:scale-90",
             gradientDirection === "right"
                 ? "bg-gradient-to-r"
                 : "bg-gradient-to-b",
