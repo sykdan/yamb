@@ -26,7 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: build
+      - name: Before build setup
+        run: |
+          echo VITE_BUILD_DATE=$(date +%s) >> ".env"
+
+      - name: Build project
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |

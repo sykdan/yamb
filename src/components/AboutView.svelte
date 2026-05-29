@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
+    import { BUILD_DATE } from "../lib/FeatureFlags";
 
     import { mdiArrowLeft as Back } from "@mdi/js";
     import SvgIcon from "@jamescoyle/svelte-icon";
@@ -9,6 +10,7 @@
 
     import Logo from "./ui/Logo.svelte";
     import Card from "./ui/Card.svelte";
+    
 
     let {
         onBack,
@@ -40,7 +42,7 @@
                     {$_("about.madeby")}
                 </div>
                 <div class="text-sm">
-                    2023 - {new Date().getFullYear()}
+                    2023 - {BUILD_DATE.getFullYear()}
                 </div>
             </div>
 
