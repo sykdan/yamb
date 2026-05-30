@@ -2,7 +2,7 @@
     import { _ } from "svelte-i18n";
     import { BUILD_DATE } from "../lib/FeatureFlags";
 
-    import { mdiArrowLeft as Back } from "@mdi/js";
+    import { BackButton } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import TopBar from "./ui/TopBar.svelte";
@@ -10,7 +10,6 @@
 
     import Logo from "./ui/Logo.svelte";
     import Card from "./ui/Card.svelte";
-    
 
     let {
         onBack,
@@ -25,7 +24,7 @@
             {#snippet leftButtonContent()}
                 <SvgIcon
                     type="mdi"
-                    path={Back}
+                    path={BackButton}
                     color="var(--surface)"
                     size="28"
                 />
@@ -47,7 +46,8 @@
             </div>
 
             <Card class="p-4">
-                <h2 class="border-b-2 pb-1">{$_("about.thanks_title")}</h2>
+                <h2 class="pb-1">{$_("about.thanks_title")}</h2>
+                <hr class="opacity-30">
                 <div class="mt-2">
                     {@html $_("about.thanks_description")}
                 </div>

@@ -1,25 +1,27 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
 
     import {
-        mdiArrowLeft as Back,
-        mdiArrowDownBold as Down,
-        mdiSwapVerticalBold as Both,
-        mdiArrowUpBold as Up,
-        mdiBullhorn as Announced,
-        mdiDice1 as Dice1,
-        mdiDice2 as Dice2,
-        mdiDice3 as Dice3,
-        mdiDice4 as Dice4,
-        mdiDice5 as Dice5,
-        mdiDice6 as Dice6,
-        mdiPlus as Maximum,
-        mdiMinus as Minimum,
-        mdiNumeric as Sequence,
-        mdiHome as FullHouse,
-        mdiStarFourPoints as Poker,
-        mdiStar as Yamb,
-    } from "@mdi/js";
+        ColumnDown,
+        ColumnAny,
+        ColumnUp,
+        ColumnAnnounce,
+        BackButton,
+    } from "../lib/Icons";
+    import {
+        Dice1,
+        Dice2,
+        Dice3,
+        Dice4,
+        Dice5,
+        Dice6,
+        Maximum,
+        Minimum,
+        Straight,
+        FullHouse,
+        Poker,
+        Yamb,
+    } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import TopBar from "./ui/TopBar.svelte";
@@ -38,7 +40,7 @@
             {#snippet leftButtonContent()}
                 <SvgIcon
                     type="mdi"
-                    path={Back}
+                    path={BackButton}
                     color="var(--surface)"
                     size="28"
                 />
@@ -92,7 +94,7 @@
                 {@html $_("rules.rows_min")}
             </p>
             <p>
-                <SvgIcon type="mdi" path={Sequence} size={32} />
+                <SvgIcon type="mdi" path={Straight} size={32} />
                 {@html $_("rules.rows_str")}
             </p>
             <ul>
@@ -134,19 +136,19 @@
                 {@html $_("rules.cols_intro")}
             </p>
             <p>
-                <SvgIcon type="mdi" path={Down} size={32} />
+                <SvgIcon type="mdi" path={ColumnDown} size={32} />
                 {@html $_("rules.cols_down")}
             </p>
             <p>
-                <SvgIcon type="mdi" path={Both} size={32} />
+                <SvgIcon type="mdi" path={ColumnAny} size={32} />
                 {@html $_("rules.cols_any")}
             </p>
             <p>
-                <SvgIcon type="mdi" path={Up} size={32} />
+                <SvgIcon type="mdi" path={ColumnUp} size={32} />
                 {@html $_("rules.cols_up")}
             </p>
             <p>
-                <SvgIcon type="mdi" path={Announced} size={32} />
+                <SvgIcon type="mdi" path={ColumnAnnounce} size={32} />
                 {@html $_("rules.cols_announce")}
             </p>
 

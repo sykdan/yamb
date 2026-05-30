@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
     import { slide } from "svelte/transition";
 
-    import { mdiPlay as Play, mdiDelete as Delete } from "@mdi/js";
+    import { PlayButton, DeleteButton } from "../../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import { dialogTrigger } from "../../lib/DialogTrigger.svelte";
@@ -27,7 +27,7 @@
         <span class="font-bold text-xl mb-1">
             {metadata.name}
         </span>
-        <span class="text-sm italic">
+        <span class="text-sm">
             {metadata.last_played !== null
                 ? new Date(metadata.last_played).toLocaleString()
                 : $_("main.no_played")}
@@ -37,7 +37,7 @@
         class="hover:not-active:scale-105 squishy bg-amber-300 rounded-full text-neutral-900 p-2 cursor-pointer shadow-md flex flex-row me-2 items-center pe-4 text-xl"
         onclick={onSaveSelected}
     >
-        <SvgIcon type="mdi" path={Play} size="32" />
+        <SvgIcon type="mdi" path={PlayButton} size="32" />
         {$_("main.play")}
     </button>
     <button
@@ -50,6 +50,6 @@
             )) && onSaveDelete()}
         class="hover:not-active:scale-105 squishy bg-red-400 rounded-full text-neutral-900 p-2 cursor-pointer shadow-md aspect-square"
     >
-        <SvgIcon type="mdi" path={Delete} size={32} />
+        <SvgIcon type="mdi" path={DeleteButton} size={32} />
     </button>
 </div>

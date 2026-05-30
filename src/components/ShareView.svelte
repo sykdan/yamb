@@ -1,7 +1,7 @@
 <script lang="ts">
     import { _, locale } from "svelte-i18n";
 
-    import { mdiArrowLeft as Back } from "@mdi/js";
+    import { BackButton } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import TopBar from "./ui/TopBar.svelte";
@@ -22,7 +22,7 @@
             {#snippet leftButtonContent()}
                 <SvgIcon
                     type="mdi"
-                    path={Back}
+                    path={BackButton}
                     color="var(--surface)"
                     size="28"
                 />

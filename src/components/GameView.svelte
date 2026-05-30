@@ -1,15 +1,15 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
     import { onMount } from "svelte";
-    import { fade, fly, slide } from "svelte/transition";
+    import { fade, fly, scale } from "svelte/transition";
 
     import {
-        mdiArrowLeft as Back,
-        mdiDotsVertical as Menu,
-        mdiClose as CrossOut,
-        mdiHelpCircle as WhoIsPlaying,
-        mdiTrashCan as Clear,
-    } from "@mdi/js";
+        BackButton,
+        MenuButton,
+        CrossOutButton,
+        WhoIsPlayingButton,
+        ClearCardButton,
+    } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import PlayingCard from "./card/Sheet.svelte";
@@ -35,6 +35,7 @@
         onBack: () => any;
     } = $props();
 
+    let finalSum = $state(null);
     let showActions = $state(false);
     let gameData: GameData = $state(
         JSON.parse(localStorage.getItem("games")!)[id],
@@ -142,10 +143,10 @@
             onRightButtonPressed={() => (showActions = !showActions)}
         >
             {#snippet leftButtonContent()}
-                <SvgIcon type="mdi" path={Back} size="28" />
+                <SvgIcon type="mdi" path={BackButton} size="28" />
             {/snippet}
             {#snippet rightButtonContent()}
-                <SvgIcon type="mdi" path={Menu} size="28" />
+                <SvgIcon type="mdi" path={MenuButton} size="28" />
             {/snippet}
         </TopBar>
     {/snippet}
@@ -175,14 +176,22 @@
                 >
                     <Card class="flex flex-col">
                         <Button flat onclick={zeroes} vstack="top">
-                            <SvgIcon type="mdi" path={CrossOut} size={32} />
+                            <SvgIcon
+                                type="mdi"
+                                path={CrossOutButton}
+                                size={32}
+                            />
                             {$_("game.crossempty")}
                         </Button>
                         <div
                             class="border-b-2 border-neutral-300 dark:border-neutral-500"
                         ></div>
                         <Button flat onclick={order} vstack="middle">
-                            <SvgIcon type="mdi" path={WhoIsPlaying} size={32} />
+                            <SvgIcon
+                                type="mdi"
+                                path={WhoIsPlayingButton}
+                                size={32}
+                            />
                             {$_("game.whoisplaying")}
                         </Button>
                         <div
@@ -194,7 +203,11 @@
                             vstack="bottom"
                             class="text-red-500! hover:text-red-800!"
                         >
-                            <SvgIcon type="mdi" path={Clear} size={32} />
+                            <SvgIcon
+                                type="mdi"
+                                path={ClearCardButton}
+                                size={32}
+                            />
                             {$_("game.reset")}
                         </Button>
                     </Card>
@@ -202,6 +215,17 @@
             </div>
         {/if}
 
-        <PlayingCard bind:card />
+        <PlayingCard bind:card bind:finalSum />
+        <div class="sticky bottom-0 flex flex-col items-center">
+            {#if finalSum !== null}
+                <div
+                    class="mt-2 bg-green-600 text-neutral-50 px-3 py-2 text-center rounded-2xl shadow-2xl flex gap-2 items-center"
+                    transition:scale|local
+                >
+                    <div class="text-xl">{$_("game.finalscore")}:</div>
+                    <div class="font-bold text-3xl">{finalSum}</div>
+                </div>
+            {/if}
+        </div>
     {/snippet}
 </Screen>

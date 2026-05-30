@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { mdiClose as Cross } from "@mdi/js";
+    import { CloseButton } from "../../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
     import settings from "../../lib/Settings.svelte";
 
@@ -115,7 +115,7 @@
         <span
             class="peer-focus:hidden pointer-events-none absolute bg-red-400 text-red-700 left-0 top-0 w-full h-full flex items-center justify-center rounded-2xl"
         >
-            <SvgIcon type="mdi" path={Cross} size={48} />
+            <SvgIcon type="mdi" path={CloseButton} size={48} />
         </span>
     {/if}
 </div>

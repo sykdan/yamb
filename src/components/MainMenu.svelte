@@ -10,12 +10,12 @@
     } from "../lib/SaveData.svelte";
 
     import {
-        mdiPlus as NewGame,
-        mdiCog as Settings,
-        mdiBook as HowToPlay,
-        mdiShareVariant as Share,
-        mdiInformation as About,
-    } from "@mdi/js";
+        NewGameButton,
+        SettingsButton,
+        HowToPlayButton,
+        ShareButton,
+        AboutButton,
+    } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import { tick } from "svelte";
@@ -96,7 +96,11 @@
                                     newGame = getNewGameData();
                                 }}
                             >
-                                <SvgIcon type="mdi" path={NewGame} size={32} />
+                                <SvgIcon
+                                    type="mdi"
+                                    path={NewGameButton}
+                                    size={32}
+                                />
                                 {$_("main.newgame")}
                             </Button>
                         </div>
@@ -121,7 +125,7 @@
                                     >
                                         <SvgIcon
                                             type="mdi"
-                                            path={NewGame}
+                                            path={NewGameButton}
                                             size={32}
                                         />
                                         {$_("main.newgame_create")}
@@ -133,22 +137,22 @@
                 </Card>
 
                 <Button onclick={onOpenSettings}>
-                    <SvgIcon type="mdi" path={Settings} size={32} />
+                    <SvgIcon type="mdi" path={SettingsButton} size={32} />
                     {$_("main.options")}
                 </Button>
 
                 <hr class="mx-4 my-2 opacity-25" />
 
                 <Button onclick={onOpenShare}>
-                    <SvgIcon type="mdi" path={Share} size={32} />
+                    <SvgIcon type="mdi" path={ShareButton} size={32} />
                     {$_("main.share")}
                 </Button>
                 <Button onclick={onOpenRules}>
-                    <SvgIcon type="mdi" path={HowToPlay} size={32} />
+                    <SvgIcon type="mdi" path={HowToPlayButton} size={32} />
                     {$_("main.rules")}
                 </Button>
                 <Button onclick={onOpenAbout}>
-                    <SvgIcon type="mdi" path={About} size={32} />
+                    <SvgIcon type="mdi" path={AboutButton} size={32} />
                     {$_("main.about")}
                 </Button>
             </div>

@@ -1,15 +1,15 @@
 <script lang="ts">
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
 
     import {
-        mdiArrowLeft as Back,
-        mdiTranslate as Languages,
-        mdiBrightness6 as LightDarkTheme,
-        mdiBrush as ColorScheme,
-        mdiPlusCircleMultiple as AutoBonus,
-        mdiCellphone as KeepScreenOn,
-        mdiCheck as Checkmark,
-    } from "@mdi/js";
+        BackButton,
+        LanguagesSetting,
+        LightDarkThemeSetting,
+        ColorSchemeSetting,
+        AutoBonusSetting,
+        KeepScreenOnSetting,
+        SelectedOption,
+    } from "../lib/Icons";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import TopBar from "./ui/TopBar.svelte";
@@ -34,7 +34,7 @@
     {@const selected = settings.color === identifier}
     <Button
         flat={!selected}
-        selected={selected}
+        {selected}
         onclick={() => (settings.color = identifier)}
     >
         <div
@@ -43,7 +43,7 @@
         >
             {#if selected}
                 <div class="text-neutral-50 surface:text-neutral-900">
-                    <SvgIcon type="mdi" path={Checkmark} size="40" />
+                    <SvgIcon type="mdi" path={SelectedOption} size="40" />
                 </div>
             {/if}
         </div>
@@ -93,14 +93,14 @@
             }}
         >
             {#snippet leftButtonContent()}
-                <SvgIcon type="mdi" path={Back} size="28" />
+                <SvgIcon type="mdi" path={BackButton} size="28" />
             {/snippet}
         </TopBar>
     {/snippet}
 
     {#snippet screenContent()}
         <div class="max-w-120 w-full self-center">
-            <Accordion label={$_("settings.theme")} icon={LightDarkTheme}>
+            <Accordion label={$_("settings.theme")} icon={LanguagesSetting}>
                 <div class="py-2 px-3">
                     {$_("settings.theme_explain")}
                 </div>
@@ -111,7 +111,7 @@
                             flat={!selected}
                             class="h-full"
                             onclick={() => (settings.theme = themeOption)}
-                            selected={selected}
+                            {selected}
                         >
                             <div class="flex flex-col items-center h-full">
                                 <ThemePreview theme={themeOption} />
@@ -132,7 +132,10 @@
                     (v) => (settings.showBackground = v),
                 )}
             </Accordion>
-            <Accordion label={$_("settings.color")} icon={ColorScheme}>
+            <Accordion
+                label={$_("settings.color")}
+                icon={LightDarkThemeSetting}
+            >
                 <div class="py-2 px-3">
                     {$_("settings.color_explain")}
                 </div>
@@ -179,7 +182,10 @@
                     {/if}
                 </div>
             </Accordion>
-            <Accordion label={$_("settings.autobonus")} icon={AutoBonus}>
+            <Accordion
+                label={$_("settings.autobonus")}
+                icon={ColorSchemeSetting}
+            >
                 <div class="py-2 px-3">
                     {$_("settings.autobonus_explain")}
                 </div>
@@ -188,7 +194,7 @@
                     (v) => (settings.autoBonus = v),
                 )}
             </Accordion>
-            <Accordion label={$_("settings.locale")} icon={Languages}>
+            <Accordion label={$_("settings.locale")} icon={AutoBonusSetting}>
                 <div class="py-2 px-3">
                     {$_("settings.locale_explain")}
                 </div>
@@ -199,7 +205,7 @@
                             flat={!selected}
                             align="start"
                             onclick={() => (settings.locale = key)}
-                            selected={selected}
+                            {selected}
                         >
                             <img src={flags[key]} alt="" class="w-12 px-1" />
                             {langName}
@@ -207,7 +213,10 @@
                     {/each}
                 </div>
             </Accordion>
-            <Accordion label={$_("settings.wakelock")} icon={KeepScreenOn}>
+            <Accordion
+                label={$_("settings.wakelock")}
+                icon={KeepScreenOnSetting}
+            >
                 <div class="py-2 px-3">
                     {$_("settings.wakelock_explain")}
                 </div>

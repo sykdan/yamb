@@ -4,7 +4,7 @@
     import { slide } from "svelte/transition";
     import Button from "./Button.svelte";
     import Card from "./Card.svelte";
-    import { mdiChevronDown as AccordionArrow } from "@mdi/js";
+    import { AccordionArrow } from "../../lib/Icons";
 
     let expanded = $state(false);
 
