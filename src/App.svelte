@@ -15,6 +15,7 @@
     import ShareView from "./components/ShareView.svelte";
     import AboutView from "./components/AboutView.svelte";
     import settings from "./lib/Settings.svelte";
+    import UpdateView from "./components/UpdateView.svelte";
 
     onMount(() => {
         const handlePopState = (event: PopStateEvent) => {
@@ -60,6 +61,9 @@
         onOpenAbout={() => {
             pushScreen({ screen: Screen.AboutView });
         }}
+        onOpenUpdate={() => {
+            pushScreen({ screen: Screen.UpdateView });
+        }}
     />
 {:else if screen == Screen.GameView && currentState.game}
     <GameView onBack={popScreen} id={currentState.game} />
@@ -71,4 +75,6 @@
     <AboutView onBack={popScreen} />
 {:else if screen == Screen.SettingsView}
     <SettingsView onBack={popScreen} />
+{:else if screen == Screen.UpdateView}
+    <UpdateView onBack={popScreen} />
 {/if}

@@ -67,7 +67,6 @@ class YambSettings {
                 document.querySelector('meta[name="theme-color"]')!.setAttribute("content", primaryColor);
                 let gradient = getComputedStyle(document.body).getPropertyValue("--bg-gradient-colors")
                 if (!gradient || gradient === "none") {
-                    console.log("none");
                     this.gradientValues = [
                         primaryColor,
                     ];

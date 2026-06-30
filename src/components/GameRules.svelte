@@ -49,7 +49,7 @@
     {/snippet}
 
     {#snippet screenContent()}
-        <div class="rules p-2">
+        <div class="rules fmt p-2">
             <p>
                 {@html $_("rules.intro_1")}
             </p>
@@ -189,27 +189,6 @@
     @reference "../style/main.css";
 
     @layer base {
-        ul {
-            @apply ms-8 mb-4 -mt-2;
-        }
-
-        li {
-            @apply text-2xl mb-2;
-        }
-
-        li::before {
-            content: " ";
-            @apply inline-block w-2 h-2 bg-current rounded-full me-3 align-middle;
-        }
-
-        p {
-            @apply text-2xl mb-4;
-        }
-
-        h2 {
-            @apply text-4xl border-b-2 mb-4;
-        }
-
         .rules :global(svg) {
             @apply inline align-top;
         }

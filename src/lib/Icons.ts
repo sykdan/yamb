@@ -35,4 +35,5 @@ export {
     mdiBook as HowToPlayButton,
     mdiShareVariant as ShareButton,
     mdiInformation as AboutButton,
+    mdiDownload as UpdateButton,
 } from "@mdi/js";

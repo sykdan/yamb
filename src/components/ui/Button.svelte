@@ -1,7 +1,5 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
-    import { slide } from "svelte/transition";
-    import Card from "./Card.svelte";
     import BaseButton from "./BaseButton.svelte";
 
     let {
@@ -38,7 +36,7 @@
         class={[
             className,
             ROUNDING,
-            "overflow-hidden w-full h-full text-3xl transition-all flex items-center gap-3 active:rounded-2xl active:scale-90",
+            "group overflow-hidden w-full h-full text-3xl transition-all flex items-center gap-3 active:rounded-2xl active:scale-90 relative",
             "bg-neutral-200 dark:bg-neutral-700",
             PADDING,
             "hover:bg-amber-300 active:bg-amber-300 dark:hover:text-neutral-900 dark:active:text-neutral-900",

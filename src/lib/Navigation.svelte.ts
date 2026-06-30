@@ -7,6 +7,7 @@ export enum Screen {
     SettingsView,
     ShareView,
     AboutView,
+    UpdateView,
 }
 
 

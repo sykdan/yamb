@@ -11,9 +11,10 @@
         children: Snippet;
         onclick: () => any;
         vstack?: "top" | "middle" | "bottom" | null;
+        class?: string;
         flat?: boolean;
     } = $props();
-    
+
     const ROUNDING = $derived.by(() => {
         if (vstack === "top") return "rounded-t-2xl";
         if (vstack === "bottom") return "rounded-b-2xl";

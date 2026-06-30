@@ -15,7 +15,9 @@
         HowToPlayButton,
         ShareButton,
         AboutButton,
+        UpdateButton,
     } from "../lib/Icons";
+    import { Application } from "../lib/Application.svelte";
     import SvgIcon from "@jamescoyle/svelte-icon";
 
     import { tick } from "svelte";
@@ -30,12 +32,14 @@
         onOpenSettings,
         onOpenShare,
         onOpenAbout,
+        onOpenUpdate,
     }: {
-        onPlay: (id: string) => any;
-        onOpenRules: () => any;
-        onOpenSettings: () => any;
-        onOpenShare: () => any;
-        onOpenAbout: () => any;
+        onPlay: (id: string) => void;
+        onOpenRules: () => void;
+        onOpenSettings: () => void;
+        onOpenShare: () => void;
+        onOpenAbout: () => void;
+        onOpenUpdate: () => void;
     } = $props();
 
     let games: { [key: string]: GameData } = $state(
@@ -155,6 +159,20 @@
                     <SvgIcon type="mdi" path={AboutButton} size={32} />
                     {$_("main.about")}
                 </Button>
+
+                {#if Application.hasNewVersion}
+                    <hr class="mx-4 my-2 opacity-25" />
+
+                    <div transition:slide>
+                        <Button onclick={onOpenUpdate}>
+                            <div
+                                class="green-pulse absolute w-full h-full group-hover:opacity-0 group-active:opaci transition-opacity"
+                            ></div>
+                            <SvgIcon type="mdi" path={UpdateButton} size={32} />
+                            <span class="z-10"> Update </span>
+                        </Button>
+                    </div>
+                {/if}
             </div>
         </div>
     {/snippet}

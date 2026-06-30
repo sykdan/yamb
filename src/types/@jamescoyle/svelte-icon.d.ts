@@ -1,5 +1,4 @@
 /// <reference types="svelte" />
-/// <reference types="vite/client" />
 
 declare module "@jamescoyle/svelte-icon" {
     interface SvgIconProps {
