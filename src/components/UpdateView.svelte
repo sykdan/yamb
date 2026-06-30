@@ -8,6 +8,8 @@
     import TopBar from "./ui/TopBar.svelte";
     import Screen from "./ui/Screen.svelte";
     import Card from "./ui/Card.svelte";
+    import Button from "./ui/Button.svelte";
+    import { Application } from "../lib/Application.svelte";
 
     type ChangelogData = {
         released: number;
@@ -52,7 +54,7 @@
 
 <Screen>
     {#snippet topBar()}
-        <TopBar title={"Update"} onLeftButtonPressed={onBack}>
+        <TopBar title={$_("update.title")} onLeftButtonPressed={onBack}>
             {#snippet leftButtonContent()}
                 <SvgIcon
                     type="mdi"
@@ -65,9 +67,11 @@
     {/snippet}
 
     {#snippet screenContent()}
-        <div class="max-w-120 w-full self-center text-2xl flex flex-col p-2 gap-4">
+        <div
+            class="max-w-120 w-full self-center text-2xl flex flex-col p-2 gap-4"
+        >
             {#await fetchChangelog}
-                Loading changelog...
+                {$_("update.loading")}
             {:then changelog}
                 {#each changelog as [version, data]}
                     <Card>
@@ -81,7 +85,15 @@
                         </div>
                     </Card>
                 {/each}
+                {#if changelog.length === 0}
+                    {$_("update.no_changelog")}
+                {/if}
+            {:catch}
+                {$_("update.loading_failed")}
             {/await}
+            <Button onclick={() => Application.updateApp()}>
+                {$_("update.do_update")}
+            </Button>
         </div>
     {/snippet}
 </Screen>

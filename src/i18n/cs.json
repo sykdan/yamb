@@ -17,6 +17,7 @@
         "rules": "Pravidla hry",
         "share": "Sdílet",
         "about": "O aplikaci",
+        "update": "Aktualizovat",
         "options": "Nastavení"
     },
     "game": {
@@ -107,6 +108,13 @@
         "thanks_description": "Tetě za to, že mě naučila hrát; a její kamarádce za to, že <em>ji</em> naučila hrát a za poskytnutí překladu do bosenštiny",
         "foss": "Tato hra je svobodný software s otevřeným zdrojovým kódem.",
         "repo": "Mrkni na zdrojový kód tady!"
+    },
+    "update": {
+        "title": "Aktualizovat",
+        "loading": "Načítám seznam změn...",
+        "loading_failed": "Načtení seznamu změn selhalo, jste offline?",
+        "no_changelog": "Vývojář k této aktualizaci nezveřejnil seznam změn.",
+        "do_update": "Aktualizovat"
     },
     "rows": {
         "ones": "Jedničky",

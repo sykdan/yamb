@@ -17,6 +17,7 @@
         "share": "Share",
         "about": "About",
         "options": "Options",
+        "update": "Update",
         "no_played": "Never played"
     },
     "game": {
@@ -107,6 +108,13 @@
         "thanks_description": "To my aunt, for teaching me how to play, and to her friend for teaching <em>her</em> how to play and for providing the Bosnian translation",
         "foss": "This application is free and open-source software.",
         "repo": "Check out the source code here!"
+    },
+    "update": {
+        "title": "Update",
+        "loading": "Loading changelog...",
+        "loading_failed": "Could not load changelog, are you offline?",
+        "no_changelog": "The developer did not publish a changelog for this update.",
+        "do_update": "Update"
     },
     "rows": {
         "ones": "Ones",
