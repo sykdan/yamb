@@ -169,7 +169,7 @@
                                 class="green-pulse absolute w-full h-full group-hover:opacity-0 group-active:opaci transition-opacity"
                             ></div>
                             <SvgIcon type="mdi" path={UpdateButton} size={32} />
-                            <span class="z-10"> Update </span>
+                            <span class="z-10"> {$_("main.update")} </span>
                         </Button>
                     </div>
                 {/if}
