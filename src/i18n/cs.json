@@ -114,7 +114,9 @@
         "loading": "Načítám seznam změn...",
         "loading_failed": "Načtení seznamu změn selhalo, jste offline?",
         "no_changelog": "Vývojář k této aktualizaci nezveřejnil seznam změn.",
-        "do_update": "Aktualizovat"
+        "do_update": "Aktualizovat",
+        "version": "Version",
+        "released": "Released"
     },
     "rows": {
         "ones": "Jedničky",

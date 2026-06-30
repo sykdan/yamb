@@ -77,7 +77,23 @@
                     <Card>
                         <div class="fmt p-4">
                             <div class="mb-2">
-                                <h2>Version {version}</h2>
+                                <h2 class="mb-0">
+                                    {$_("update.version")}
+                                    {version}
+                                </h2>
+                                <div class="mb-2">
+                                    <i class="text-lg">
+                                        {$_("update.released")}
+                                        {new Date(data.released).toLocaleString(
+                                            undefined,
+                                            {
+                                                day: "numeric",
+                                                month: "long",
+                                                year: "numeric",
+                                            },
+                                        )}
+                                    </i>
+                                </div>
                                 <div>
                                     {@html data.comment}
                                 </div>
