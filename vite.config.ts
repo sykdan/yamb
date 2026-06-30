@@ -5,13 +5,16 @@ import { VitePWA } from 'vite-plugin-pwa'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  preview: {
+    allowedHosts: true
+  },
   plugins: [
     tailwindcss(),
     svelte({
       preprocess: vitePreprocess()
     }),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico}']
       },

@@ -38,7 +38,6 @@
     }
 }
 
-
 html,
 body,
 #app {
@@ -50,9 +49,8 @@ body,
 
 body {
     margin: 0;
-    @apply m-0 text-neutral-900 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-900 
+    @apply m-0 text-neutral-900 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-900
 }
-
 
 @layer components {
     .card {
@@ -61,7 +59,6 @@ body {
         font-size: 24px;
     }
 
-
     .btn {
         @apply squishy bg-neutral-200 hover:bg-amber-300 active:bg-amber-300 dark:bg-neutral-700 dark:hover:text-neutral-900 dark:active:text-neutral-900 text-3xl py-2 transition-all cursor-pointer flex justify-center items-center;
     }
@@ -69,5 +66,45 @@ body {
     .yamb-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
         @apply gap-1 not-last-of-type:mb-1;
+    }
+}
+
+  @keyframes green-pulse {
+        from {
+            background: var(--color-green-600);
+        }
+
+        to {
+            background: transparent;
+        }
+    }
+
+    @utility green-pulse {
+        animation: green-pulse 0.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-direction: alternate
+    }
+
+@layer base {
+    .fmt {
+        ul {
+            @apply ms-8 mb-4 -mt-2;
+        }
+
+        li {
+            @apply text-2xl mb-2;
+        }
+
+        li::before {
+            content: " ";
+            @apply inline-block w-2 h-2 bg-current rounded-full me-3 align-middle;
+        }
+
+        p {
+            @apply text-2xl mb-4;
+        }
+
+        h2 {
+            @apply text-4xl border-b-2 mb-4;
+        }
     }
 }
